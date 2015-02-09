@@ -1,0 +1,14 @@
+
+function check_vars()
+{
+	echo "Loading variables:"
+	for i in $*; do
+	        if [ -z ${!i} ]; then
+	                echo "ERROR: needed parameter $i is empty"
+	                exit 1
+	        fi
+	        printf "\t%-15s = %s\n" $i ${!i}
+	        #echo "$i = ${!i}"
+	done
+}
+
